@@ -1,0 +1,19 @@
+import numpy as np
+from sklearn.cluster import KMeans
+
+# Sample data: customer purchase history (e.g., amount spent and frequency of purchases)
+X = np.array([[100, 2], [150, 3], [80, 1], [200, 4], [120, 2], [90, 1]])
+
+# Define the number of clusters (groups of customers)
+k = 2
+
+# Create and fit the KMeans clustering model
+kmeans = KMeans(n_clusters=k)
+kmeans.fit(X)
+
+# Get the cluster labels for each customer
+cluster_labels = kmeans.labels_
+
+# Print the cluster labels for each customer
+for i, label in enumerate(cluster_labels):
+    print("Customer", i+1, "is assigned to Cluster", label+1)
